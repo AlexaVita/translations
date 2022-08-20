@@ -40,6 +40,20 @@
 <br />
 <br />
 
+![editChapter](https://user-images.githubusercontent.com/88112879/185764120-e4f4947b-b7b4-421a-872f-4af4ce6a7c90.png)
+<h4 align="center">Редактирование главы (администратор)</h4>
+<br />
+<br />
+<br />
+<br />
+
+![getChapter](https://user-images.githubusercontent.com/88112879/185764147-8bfff56a-dfdb-412e-8ac7-be84b2cd93db.png)
+<h4 align="center">Просмотр главы</h4>
+<br />
+<br />
+<br />
+<br />
+
 ![login](https://user-images.githubusercontent.com/88112879/185763631-6a3e3a9c-a232-4858-8c04-1895a377a417.png)
 <h4 align="center">Форма входа</h4>
 <br />
