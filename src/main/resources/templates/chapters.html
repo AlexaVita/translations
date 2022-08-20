@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Главы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="fragments/header::header"></header>
+
+<div>
+    <ul class="list-group list-group-flush justify-content-center">
+        <li class="list-group-item d-flex align-items-center disable" th:each="chapter:${chapters}">
+            <a class="mr-2 btn btn-light" th:href="'/chapter/'+${chapter.id}" th:text="${chapter.title}"></a>
+            <a class="mr-2 btn btn-light" th:if="${role}==ADMIN" th:href="'/chapter/edit/'+${chapter.id}"
+               th:text="Редактировать"></a>
+
+            <form th:if="${role}==ADMIN" th:action="'/chapter/delete/'+${chapter.id}" method="post">
+                <button class="btn btn-outline-danger" type="submit">Удалить</button>
+            </form>
+        </li>
+    </ul>
+</div>
+
+<ul class="pagination" th:if="${chapters.totalPages > 1}">
+    <li class="page-item">
+        <a class="page-link" th:href="@{/chapters(page=0)}" tabindex="-1" th:text="Первая"></a>
+    </li>
+
+    <th:block th:if="${ chapters.totalPages>1}">
+        <th:block th:each="el:${pages}">
+            <li class="page-item" th:if="${(el-1) < chapters.number and (el-1)>(chapters.number-2)}">
+                <a class="page-link" th:href="@{/chapters(page=${el-1})}" tabindex="-1" th:text="${el}"></a>
+            </li>
+
+            <li class="page-item active" th:if="${(el-1) == chapters.number}">
+                <a class="page-link" href="#" th:text="${el}"><span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="page-item" th:if="${(el-1) > chapters.number and (el-1)<(chapters.number+2)}">
+                <a class="page-link" th:href="@{/chapters(page=${el-1})}" tabindex="-1" th:text="${el}"></a>
+            </li>
+        </th:block>
+    </th:block>
+
+    <li class="page-item">
+        <a class="page-link" th:href="@{/chapters(page=${chapters.totalPages-1})}" tabindex="-1"
+           th:text="Последняя"></a>
+    </li>
+</ul>
+
+<div th:insert="fragments/footer::footer"></div>
+</body>
+</html>

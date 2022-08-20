@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Вход</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="fragments/header::header"></header>
+
+<div class="row">
+    <div class="col-4 offset-4 ">
+        <form class="form justify-content-center" th:action="@{/login}" method="post">
+            <div class="form-group ">
+                <label for="login">Логин:</label>
+                <input type="text" class="form-control" id="login" placeholder="Введите логин" name="username">
+            </div>
+            <div class="form-group ">
+                <label for="password">Пароль:</label>
+                <input type="password" class="form-control" id="password" placeholder="Пароль" name="password">
+            </div>
+            <div class=" text-center">
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
